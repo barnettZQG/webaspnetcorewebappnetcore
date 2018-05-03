@@ -1,10 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "StartUpName Contact"; /*Tabs at top of browser names.*/
+    //ViewData["Title"] = "StartUpName Contact"; /*Tabs at top of browser names.*/
+    ViewData["Title"] = "RSA Encryption Algorithm!"; /*Tabs at top of browser names.*/
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
+@*<h2>@ViewData["Title"].</h2> @*This puts another line in top of page.*@
+<h2>@ViewData["Title"]<br /> Not Just for the NSA Anymore! </h2>@*This puts another line in top of page.*@
+@*<h3>@ViewData["Message"]</h3> *This puts another line in top of page.*@
+<h3>@ViewData["Message"]<br /> A Public/Private Key Encryption Algorithm!</h3> @*This puts another line in top of page.*@
 
-<address>
+@*Commented out original contact info. 
+    <address>
     One Microsoft Way<br />
     Redmond, WA 98052-6399<br />
     <abbr title="Phone">P:</abbr>
@@ -14,4 +18,143 @@
 <address>
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+</address>*@
+
+<body>
+
+    <header>
+        <hgroup>
+            @*<h1>RSA Encryption Algorithm!</h1>*@
+            @*<h2>Not Just for the NSA Anymore!</h2>
+            <h3><a href="mailto:mikepories@gmail.com">Email Me</a><br /></h3>*@
+        </hgroup>
+    </header>
+
+    <section>
+        <article>
+
+            <h2>A Public/Private Key Encryption Algorithm!</h2>
+
+            <p>
+                What is RSA encryption? Put simply it is a public / private key encryption algorithm. That is great, but what does that mean? Simple.
+                One party gives out a very simple encryption algorithm to anyone who wants it. The encryption algorithm is public, hence the public
+                part of public private key. In RSA people are given 2 numbers a MOD and an exponent. That is all that is needed to encrypt the message/number.
+                The trick is that the decryption is very hard. You have to have a third number to manipulate the message/number to decrypt it.
+                That takes a huge amount of processing power and time unless you have the key. These numbers are all prime numbers, and are very large.
+                Do they have to use the same number everyone else has? No. Do they, yes it seems so.
+                For example the 256 encryption MOD number is: 11579208921035624876269744694940757353008614\
+                3415290314195533631308867097853951. Special Thanks to the boys at the National Security Agency, The Central Security Service,
+                and the Information Assurance Directorate for giving us a broken lock.
+                <br />
+                Here is what the encryption and decryption equations look like from an OOP perspective.
+                <br />
+                <h3>Variables:</h3>
+                Public int x, y;<br />
+                Private int z;<br />
+                Private string: (The secret message:) var1;<br />
+                <br />
+                Encryption: <strong>var1 <sup>x</sup> mod y</strong> encrypted message you send.<br />
+                Decryption: <strong>z * x (mod Ф (n)) == 1</strong> decryption algorithm on message you recieved.<br />
+                <br />
+                Lets use an example.<br />
+                <br />
+                Encryption answer: x == 5, y == 14<br />
+                Decryption answer: z == 11, y == 14<br />
+                <br />
+                Rules: Secret parts we don't tell anyone below:<br />
+                <ol>
+                    <li>
+                        Pick 2 prime numbers. Must use large primes. 2,7 They stay secret.<br />
+                        Multiply the two primes == 14. Become modulus.<br />
+                        Mod = Clock arithmetic, divide number by mod and user remainder.<br />
+                        Mod Y<br />
+                        To chose y multiply two large prime numbers. Prime * Prime == Larger Prime<br />
+                        Mod y ==  P1 * P2;<br />
+                        Y==14<br />
+                        Y==2*7; //Two large primes multiplied together.<br />
+                        P1==2;<br />
+                        P2==7;<br />
+                        These are the only numbers that will factor to Y (14)<br />
+                    </li>
+
+                    <li>
+                        Phi function (not the golden ratio.) To find numbers of coprimes.<br />
+                        Fast Way:<br />
+                        Ф(n) == (P1-1) * (P2-1) //(2-1)*(7-1)<br />
+                        Ф(n) == (2-1) * (7-1) // 1*6<br />
+                        Ф(n) ==6<br />
+                        <br />
+                        Phi Funtion: Slow way<br />
+                        List all numbers: 1,2,3,4,5,6,7,8,9,10,11,12,13,14<br />
+                        In this list some numbers have common factors with 14, and some do not.<br />
+                        2 and 7 are the only factors of 14.<br />
+                        These are the numbers that share a common factor with 14.<br />
+                        2, and all even numbers bc they are divisible with 2. All even numbers are divisible by 2! SHARE!!<br />
+                        Removes 2,4,6,8,10,12,14<br />
+                        Remove: 7 common factor of 14<br />
+                        Leaves: 1,3,5,9,11,13 == 6  There are 6 coprime with 14. They share no common factors with 14.<br />
+                    </li>
+
+
+                    <li>
+                        Chose x<br />
+                        X       1&lt; x &lt; Ф(n)<br />
+                        coprime with y, Ф(n) (coprime with 14 and 6.)<br />
+                        1<br />
+                        &lt;x&lt;6<br />
+                        X=2,3,4,5<br />
+                        Out of those it must be co prime with 14 and 6.<br />
+                        Must not have common factor with 14 and 6.<br />
+                        1 can't be used must be above 1.<br />
+                        Can eliminate even numbers: 2,4. (4==2*2)<br />
+                        Can eliminate 3 bc it has a common factor with 6. (6==2*3)<br />
+                        Removes all but 5!!<br />
+                        AT THIS STAGE YOU KNOW LOCK. X AND MOD Y. NOW YOU NEED TO WORK OUT KEY.<br />
+                    </li>
+
+
+
+
+                    <li>
+                        Chose Z.<br />
+                        Z*X(mod Ф(n)) ==1<br />
+                        Z*(X==5)((mod Ф(n)) ==6)==1<br />
+                        Z*5(mod 6)==1 is same as 5Z(mod 6)==1<br />
+                        5Z are multiples of 5. 5,10,15,20<br />
+                        Write them all out and do mod 6<br />
+                        Z==1 ----- 5(mod 6)==5<br />
+                        Z==2 -----10(mod 6)==4<br />
+                        Z==3 -----15(mod 6)==3<br />
+                        Z==4 -----20(mod 6)==2<br />
+                        Z==5 -----25(mod 6)==1     Remember you must use large primes for this to work well.<br />
+                        Z==6 -----30(mod 6)==0 Has to be 0 because you are multiplying 5*6 aka by 6th multiple. No remainder. This<br />
+                        Pattern will repeat. You can pick any of these numbers where you get a 1.<br />
+                        Z==7 -----35(mod 6)==5<br />
+                        Z==8 -----40(mod 6)==4<br />
+                        Z==9 -----45(mod 6)==3<br />
+                        Z==10 ---50(mod 6)==2<br />
+                        Z==11 ---55(mod 6)==1<br />
+                        11 is the one we chose. Cause 5 is too easy.<br />
+                    </li>
+                </ol>
+            </p>
+        </article>
+
+    </section>
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://github.com/pories" target="external">My Github</a>
+                </li>
+                <li>
+                    <a href="http://taolesstraveled.com/" target="external">Tao Less Traveled</a>
+                </li>
+
+            </ul>
+        </nav>
+    </footer>
+
+
+
+</body>
